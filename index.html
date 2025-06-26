@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Quiz: IT‑Profi?</title>
+<style>
+   body { font-family: Arial, sans-serif; max-width: 600px; margin: 2em auto; }
+   h1 { text-align: center; }
+   .question { margin-bottom: 1.5em; }
+   .result { font-size: 1.2em; margin-top: 1em; }
+   button { padding: 0.5em 1em; font-size: 1em; }
+</style>
+</head>
+<body>
+<h1>Quiz: Hast du das Zeug zum IT‑Profi?</h1>
+<form id="quizForm">
+<!-- Frage 1 -->
+<div class="question">
+<p>1. Was ist ein <strong>Switch</strong>?</p>
+<label><input type="radio" name="q1" value="wrong"> Ein Gerät zum Programmieren von Apps</label><br>
+<label><input type="radio" name="q1" value="wrong"> Ein Verteiler für Strom</label><br>
+<label><input type="radio" name="q1" value="right"> Ein Gerät, das Netzwerkgeräte miteinander verbindet</label><br>
+<label><input type="radio" name="q1" value="wrong"> Ein Ersatz für ein Modem</label>
+</div>
+<!-- Frage 2 -->
+<div class="question">
+<p>2. Was passiert, wenn zwei Geräte im Netzwerk dieselbe IP‑Adresse haben?</p>
+<label><input type="radio" name="q2" value="wrong"> Das Internet wird schneller</label><br>
+<label><input type="radio" name="q2" value="wrong"> Einer bekommt automatisch WLAN</label><br>
+<label><input type="radio" name="q2" value="right"> Es kommt zu einem Konflikt, keiner funktioniert richtig</label><br>
+<label><input type="radio" name="q2" value="wrong"> Die Geräte verschmelzen zu einem Supercomputer</label>
+</div>
+<!-- Frage 3 -->
+<div class="question">
+<p>3. Wofür steht <strong>LAN</strong>?</p>
+<label><input type="radio" name="q3" value="wrong"> Long Area Node</label><br>
+<label><input type="radio" name="q3" value="wrong"> Local Access Network</label><br>
+<label><input type="radio" name="q3" value="wrong"> Low Air Navigation</label><br>
+<label><input type="radio" name="q3" value="right"> Local Area Network</label>
+</div>
+<!-- Frage 4 -->
+<div class="question">
+<p>4. Du willst einen neuen Computer ins Netzwerk bringen. Was brauchst du mindestens?</p>
+<label><input type="radio" name="q4" value="wrong"> Tastatur</label><br>
+<label><input type="radio" name="q4" value="wrong"> Betriebssystem</label><br>
+<label><input type="radio" name="q4" value="right"> Netzwerkkabel oder WLAN</label><br>
+<label><input type="radio" name="q4" value="wrong"> Virenschutz</label>
+</div>
+<!-- Frage 5 -->
+<div class="question">
+<p>5. Was macht der Befehl <code>ping</code>?</p>
+<label><input type="radio" name="q5" value="wrong"> Startet ein Spiel</label><br>
+<label><input type="radio" name="q5" value="wrong"> Misst, wie laut dein PC ist</label><br>
+<label><input type="radio" name="q5" value="right"> Testet, ob ein anderes Gerät erreichbar ist</label><br>
+<label><input type="radio" name="q5" value="wrong"> Installiert ein Update</label>
+</div>
+<!-- Frage 6 -->
+<div class="question">
+<p>6. Was ist ein <strong>Router</strong>?</p>
+<label><input type="radio" name="q6" value="wrong"> Eine Software zum Zeichnen von Netzplänen</label><br>
+<label><input type="radio" name="q6" value="right"> Ein Gerät, das das Internet ins Heimnetz bringt</label><br>
+<label><input type="radio" name="q6" value="wrong"> Ein USB‑Gerät für Sicherheit</label><br>
+<label><input type="radio" name="q6" value="wrong"> Ein Übersetzer für Programmiersprachen</label>
+</div>
+<!-- Frage 7 -->
+<div class="question">
+<p>7. Woran erkennst du ein RJ‑45‑Netzwerkkabel?</p>
+<label><input type="radio" name="q7" value="wrong"> Runde Form und 3 Pole</label><br>
+<label><input type="radio" name="q7" value="right"> Breiter Stecker mit 8 Kontakten</label><br>
+<label><input type="radio" name="q7" value="wrong"> Mini‑USB‑Anschluss</label><br>
+<label><input type="radio" name="q7" value="wrong"> Klinkenstecker wie beim Kopfhörer</label>
+</div>
+<!-- Frage 8 -->
+<div class="question">
+<p>8. Welches dieser Geräte ist typisch für den Serverraum?</p>
+<label><input type="radio" name="q8" value="wrong"> Beamer</label><br>
+<label><input type="radio" name="q8" value="right"> NAS‑System</label><br>
+<label><input type="radio" name="q8" value="wrong"> Maus</label><br>
+<label><input type="radio" name="q8" value="wrong"> Bluetooth‑Speaker</label>
+</div>
+<!-- Frage 9 -->
+<div class="question">
+<p>9. Was ist eine Cloud?</p>
+<label><input type="radio" name="q9" value="wrong"> Ein Ordner auf dem Desktop</label><br>
+<label><input type="radio" name="q9" value="wrong"> Ein Regen‑Simulator</label><br>
+<label><input type="radio" name="q9" value="right"> Ein Speicher‑ und Serverdienst im Internet</label><br>
+<label><input type="radio" name="q9" value="wrong"> Ein Stromnetz</label>
+</div>
+<!-- Frage 10 -->
+<div class="question">
+<p>10. Was macht ein Fachinformatiker Systemintegration?</p>
+<label><input type="radio" name="q10" value="wrong"> Webseiten gestalten</label><br>
+<label><input type="radio" name="q10" value="right"> Netzwerke planen, Server einrichten, IT‑Probleme lösen</label><br>
+<label><input type="radio" name="q10" value="wrong"> Texte schreiben</label><br>
+<label><input type="radio" name="q10" value="wrong"> Spiele entwickeln</label>
+</div>
+<button type="button" onclick="auswerten()">Quiz auswerten</button>
+</form>
+<div id="ergebnis" class="result"></div>
+<script>
+   function auswerten() {
+     const form = document.getElementById('quizForm');
+     const resultat = document.getElementById('ergebnis');
+     let correct = 0;
+     for (let i = 1; i <= 10; i++) {
+       const ans = form['q'+i].value;
+       if (ans === 'right') correct++;
+     }
+     resultat.textContent = `Du hattest ${correct} von 10 Punkten!` +
+       (correct >= 7
+         ? " Glückwunsch – bei der Messe gibt’s dafür einen kleinen Preis 😊"
+         : " Versuch’s gerne nochmal oder sprich uns an!");
+   }
+</script>
+</body>
+</html>
