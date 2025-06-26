@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Quiz: IT‑Profi?</title>
+<style>
+
+    :root {
+
+      --primary: #2c3e50;
+
+      --secondary: #3498db;
+
+      --bg: #f9f9f9;
+
+      --white: #ffffff;
+
+      --correct: #d4edda;
+
+      --wrong: #f8d7da;
+
+      --correct-border: #28a745;
+
+      --wrong-border: #dc3545;
+
+    }
+
+    body {
+
+      margin: 0; padding: 0;
+
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+      background-color: var(--bg);
+
+      color: var(--primary);
+
+    }
+
+    .container {
+
+      max-width: 800px;
+
+      margin: 2rem auto;
+
+      background: var(--white);
+
+      padding: 2rem;
+
+      border-radius: 10px;
+
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+
+    }
+
+    h1 {
+
+      text-align: center;
+
+      margin-bottom: 1rem;
+
+    }
+
+    .progress-container {
+
+      background-color: #ddd;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      height: 20px;
+
+      margin: 1rem 0 2rem;
+
+    }
+
+    .progress-bar {
+
+      height: 100%;
+
+      width: 0;
+
+      background-color: var(--secondary);
+
+      transition: width 0.3s ease;
+
+    }
+
+    .question {
+
+      margin-bottom: 1.8rem;
+
+    }
+
+    .question p {
+
+      font-weight: 600;
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    label {
+
+      display: block;
+
+      margin-bottom: 0.4rem;
+
+      padding: 0.5rem;
+
+      border-radius: 5px;
+
+      cursor: pointer;
+
+      transition: background 0.2s;
+
+    }
+
+    label:hover {
+
+      background-color: #eef6ff;
+
+    }
+
+    label.correct {
+
+      background-color: var(--correct);
+
+      border: 2px solid var(--correct-border);
+
+    }
+
+    label.wrong {
+
+      background-color: var(--wrong);
+
+      border: 2px solid var(--wrong-border);
+
+    }
+
+    button {
+
+      display: block;
+
+      width: 100%;
+
+      padding: 1rem;
+
+      font-size: 1.1rem;
+
+      font-weight: bold;
+
+      background-color: var(--secondary);
+
+      color: white;
+
+      border: none;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      margin-top: 1rem;
+
+      transition: background-color 0.3s ease;
+
+    }
+
+    button:hover {
+
+      background-color: #2980b9;
+
+    }
+
+    .result {
+
+      font-size: 1.3rem;
+
+      font-weight: 600;
+
+      margin-top: 2rem;
+
+      text-align: center;
+
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+
+        padding: 1.2rem;
+
+        margin: 1rem;
+
+      }
+
+      button {
+
+        font-size: 1rem;
+
+        padding: 0.8rem;
+
+      }
+
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Hast du das Zeug zum IT‑Profi?</h1>
+<div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+<form id="quizForm">
+<!-- Frage 1 -->
+<div class="question">
+<p>1. Was ist ein <strong>Switch</strong>?</p>
+<label><input type="radio" name="q1" value="wrong" onchange="updateProgress()"> Ein Gerät zum Programmieren von Apps</label>
+<label><input type="radio" name="q1" value="wrong" onchange="updateProgress()"> Ein Verteiler für Strom</label>
+<label><input type="radio" name="q1" value="right" onchange="updateProgress()"> Ein Gerät, das Netzwerkgeräte miteinander verbindet</label>
+<label><input type="radio" name="q1" value="wrong" onchange="updateProgress()"> Ein Ersatz für ein Modem</label>
+</div>
+<!-- Frage 2 -->
+<div class="question">
+<p>2. Was passiert, wenn zwei Geräte im Netzwerk dieselbe IP‑Adresse haben?</p>
+<label><input type="radio" name="q2" value="wrong" onchange="updateProgress()"> Das Internet wird schneller</label>
+<label><input type="radio" name="q2" value="wrong" onchange="updateProgress()"> Einer bekommt automatisch WLAN</label>
+<label><input type="radio" name="q2" value="right" onchange="updateProgress()"> Es kommt zu einem Konflikt, keiner funktioniert richtig</label>
+<label><input type="radio" name="q2" value="wrong" onchange="updateProgress()"> Die Geräte verschmelzen zu einem Supercomputer</label>
+</div>
+<!-- Frage 3 -->
+<div class="question">
+<p>3. Wofür steht <strong>LAN</strong>?</p>
+<label><input type="radio" name="q3" value="wrong" onchange="updateProgress()"> Long Area Node</label>
+<label><input type="radio" name="q3" value="wrong" onchange="updateProgress()"> Local Access Network</label>
+<label><input type="radio" name="q3" value="wrong" onchange="updateProgress()"> Low Air Navigation</label>
+<label><input type="radio" name="q3" value="right" onchange="updateProgress()"> Local Area Network</label>
+</div>
+<!-- Frage 4 -->
+<div class="question">
+<p>4. Du willst einen neuen Computer ins Netzwerk bringen. Was brauchst du mindestens?</p>
+<label><input type="radio" name="q4" value="wrong" onchange="updateProgress()"> Tastatur</label>
+<label><input type="radio" name="q4" value="wrong" onchange="updateProgress()"> Betriebssystem</label>
+<label><input type="radio" name="q4" value="right" onchange="updateProgress()"> Netzwerkkabel oder WLAN</label>
+<label><input type="radio" name="q4" value="wrong" onchange="updateProgress()"> Virenschutz</label>
+</div>
+<!-- Frage 5 -->
+<div class="question">
+<p>5. Was macht der Befehl <code>ping</code>?</p>
+<label><input type="radio" name="q5" value="wrong" onchange="updateProgress()"> Startet ein Spiel</label>
+<label><input type="radio" name="q5" value="wrong" onchange="updateProgress()"> Misst, wie laut dein PC ist</label>
+<label><input type="radio" name="q5" value="right" onchange="updateProgress()"> Testet, ob ein anderes Gerät erreichbar ist</label>
+<label><input type="radio" name="q5" value="wrong" onchange="updateProgress()"> Installiert ein Update</label>
+</div>
+<!-- Frage 6 -->
+<div class="question">
+<p>6. Was ist ein <strong>Router</strong>?</p>
+<label><input type="radio" name="q6" value="wrong" onchange="updateProgress()"> Eine Software...</label>
+<label><input type="radio" name="q6" value="right" onchange="updateProgress()"> Ein Gerät, das das Internet ins Heimnetz bringt</label>
+<label><input type="radio" name="q6" value="wrong" onchange="updateProgress()"> Ein USB‑Gerät für Sicherheit</label>
+<label><input type="radio" name="q6" value="wrong" onchange="updateProgress()"> Ein Übersetzer für Programmiersprachen</label>
+</div>
+<!-- Frage 7 -->
+<div class="question">
+<p>7. Woran erkennst du ein RJ‑45‑Netzwerkkabel?</p>
+<label><input type="radio" name="q7" value="wrong" onchange="updateProgress()"> Runde Form und 3 Pole</label>
+<label><input type="radio" name="q7" value="right" onchange="updateProgress()"> Breiter Stecker mit 8 Kontakten</label>
+<label><input type="radio" name="q7" value="wrong" onchange="updateProgress()"> Mini‑USB‑Anschluss</label>
+<label><input type="radio" name="q7" value="wrong" onchange="updateProgress()"> Klinkenstecker wie beim Kopfhörer</label>
+</div>
+<!-- Frage 8 -->
+<div class="question">
+<p>8. Welches dieser Geräte ist typisch für den Serverraum?</p>
+<label><input type="radio" name="q8" value="wrong" onchange="updateProgress()"> Beamer</label>
+<label><input type="radio" name="q8" value="right" onchange="updateProgress()"> NAS‑System</label>
+<label><input type="radio" name="q8" value="wrong" onchange="updateProgress()"> Maus</label>
+<label><input type="radio" name="q8" value="wrong" onchange="updateProgress()"> Bluetooth‑Speaker</label>
+</div>
+<!-- Frage 9 -->
+<div class="question">
+<p>9. Was ist eine Cloud?</p>
+<label><input type="radio" name="q9" value="wrong" onchange="updateProgress()"> Ein Ordner auf dem Desktop</label>
+<label><input type="radio" name="q9" value="wrong" onchange="updateProgress()"> Ein Regen‑Simulator</label>
+<label><input type="radio" name="q9" value="right" onchange="updateProgress()"> Ein Speicher‑ und Serverdienst im Internet</label>
+<label><input type="radio" name="q9" value="wrong" onchange="updateProgress()"> Ein Stromnetz</label>
+</div>
+<!-- Frage 10 -->
+<div class="question">
+<p>10. Was macht ein Fachinformatiker Systemintegration?</p>
+<label><input type="radio" name="q10" value="wrong" onchange="updateProgress()"> Webseiten gestalten</label>
+<label><input type="radio" name="q10" value="right" onchange="updateProgress()"> Netzwerke planen, Server einrichten, IT‑Probleme lösen</label>
+<label><input type="radio" name="q10" value="wrong" onchange="updateProgress()"> Texte schreiben</label>
+<label><input type="radio" name="q10" value="wrong" onchange="updateProgress()"> Spiele entwickeln</label>
+</div>
+<button type="button" onclick="auswerten()">Quiz auswerten</button>
+</form>
+<div id="ergebnis" class="result"></div>
+</div>
+<script>
+
+    function auswerten() {
+
+      const form = document.getElementById('quizForm');
+
+      const resultat = document.getElementById('ergebnis');
+
+      let punkte = 0;
+
+      for (let i = 1; i <= 10; i++) {
+
+        const opts = form.querySelectorAll(`input[name="q${i}"]`);
+
+        opts.forEach(input => {
+
+          const label = input.parentElement;
+
+          label.classList.remove('correct','wrong');
+
+          if (input.checked) {
+
+            if (input.value==='right') punkte++;
+
+          }
+
+          if (input.value === 'right') label.classList.add('correct');
+
+          else if (input.checked && input.value === 'wrong') label.classList.add('wrong');
+
+        });
+
+      }
+
+      let message = "";
+
+      if (punkte === 0) message = "Da geht noch was – probier’s nochmal!";
+
+      else if (punkte <= 1) message = "Nicht schlecht – du hast Interesse gezeigt!";
+
+      else message = "Starke Leistung! Mit deinem Wissen bist du auf dem richtigen Weg in die IT.";
+
+      resultat.textContent = `Du hattest ${punkte} von 10 Punkten. ${message}`;
+
+    }
+
+    function updateProgress() {
+
+      const opts = document.querySelectorAll('input[type="radio"]');
+
+      const answered = new Set(
+
+        [...opts].filter(i=>i.checked).map(i=>i.name)
+
+      ).size;
+
+      const pct = Math.round(answered/10*100);
+
+      document.getElementById('progressBar').style.width = pct+'%';
+
+    }
+</script>
+</body>
+</html>
+ 
