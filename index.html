@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT-Quiz: Fachinformatik Systemintegration</title>
+<style>
+   body {
+     font-family: Arial, sans-serif;
+     background-color: #f4f4f4;
+     margin: 0;
+     padding: 0;
+   }
+   .quiz-container {
+     max-width: 600px;
+     margin: 2rem auto;
+     background: #ffffff;
+     padding: 2rem;
+     border-radius: 10px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   }
+   h1 {
+     text-align: center;
+     color: #2c3e50;
+   }
+   .question {
+     margin-bottom: 1.5rem;
+   }
+   .question p {
+     font-weight: bold;
+   }
+   label {
+     display: block;
+     margin-bottom: 0.5rem;
+     cursor: pointer;
+   }
+   button {
+     display: block;
+     width: 100%;
+     padding: 1rem;
+     font-size: 1rem;
+     background-color: #3498db;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     margin-top: 1.5rem;
+     cursor: pointer;
+   }
+   button:hover {
+     background-color: #2980b9;
+   }
+   #result {
+     margin-top: 2rem;
+     font-size: 1.2rem;
+     text-align: center;
+     color: #27ae60;
+     font-weight: bold;
+   }
+   @media (max-width: 600px) {
+     .quiz-container {
+       margin: 1rem;
+       padding: 1.5rem;
+     }
+     button {
+       font-size: 1rem;
+       padding: 0.8rem;
+     }
+   }
+</style>
+</head>
+<body>
+<div class="quiz-container">
+<h1>IT-Quiz: Systemintegration</h1>
+<form id="quizForm">
+<div class="question">
+<p>1. Was ist eine IP-Adresse?</p>
+<label><input type="radio" name="q1" value="falsch"> Eine Hardwarekomponente</label>
+<label><input type="radio" name="q1" value="richtig"> Eine eindeutige Netzwerkadresse</label>
+<label><input type="radio" name="q1" value="falsch"> Ein Computervirus</label>
+</div>
+<div class="question">
+<p>2. Was macht ein Switch im Netzwerk?</p>
+<label><input type="radio" name="q2" value="falsch"> Verbindet WLAN mit dem Internet</label>
+<label><input type="radio" name="q2" value="richtig"> Verteilt Datenpakete gezielt an Geräte</label>
+<label><input type="radio" name="q2" value="falsch"> Wandelt Strom in Daten um</label>
+</div>
+<!-- Weitere Fragen hier einfügen -->
+<button type="button" onclick="auswerten()">Auswerten</button>
+</form>
+<div id="result"></div>
+</div>
+<script>
+   function auswerten() {
+     const quizForm = document.getElementById("quizForm");
+     const inputs = quizForm.querySelectorAll("input[type='radio']:checked");
+     let punkte = 0;
+     inputs.forEach(input => {
+       if (input.value === "richtig") punkte++;
+     });
+     let message = "";
+     if (punkte === 0) {
+       message = "Da geht noch was – probier’s nochmal!";
+     } else if (punkte <= 1) {
+       message = "Nicht schlecht – du hast Interesse gezeigt!";
+     } else if (punkte >= 2) {
+       message = "Starke Leistung! Mit deinem Wissen bist du auf dem richtigen Weg in die IT.";
+     }
+     document.getElementById("result").innerText = `Du hast ${punkte} von 2 Punkten.\n${message}`;
+   }
+</script>
+</body>
+</html>
